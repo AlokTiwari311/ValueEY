@@ -74,9 +74,10 @@ const CountdownTimer = () => {
                 We're Coming Soon
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             </h1>
-            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider mb-8 sm:mb-16 text-center bg-clip-text px-4">
-                Our exciting new platform is currently under development, and we're<br className="hidden sm:block" />thrilled to announce that we'll be launching in just 45 days!
+            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider mb-4 sm:mb-16 text-center bg-clip-text px-4">
+                Our exciting new platform is currently under development, and we're<br className="hidden sm:block" />thrilled to announce that we’ll be launching soon.!
             </h2>
+
 
             <div className="countdown-container backdrop-blur-lg bg-black/30 p-4 sm:p-8 md:p-12 rounded-2xl border border-white/5">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
@@ -138,7 +139,11 @@ const CountdownTimer = () => {
                 </div>
             </div>
 
-            <div className="mt-8 sm:mt-16 w-full max-w-md px-4">
+            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider mt-2 sm:mt-6 text-center bg-clip-text px-4">
+                Risk & Business Consulting | Audits | Field Reviews | Compliances
+            </h2>
+
+            <div className="mt-4 sm:mt-12 w-full max-w-md px-4">
                 <div className="flex text-sm flex-col sm:flex-row gap-4">
                     <input
                         type="email"
