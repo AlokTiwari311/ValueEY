@@ -71,9 +71,9 @@ const CountdownTimer = () => {
     return (
         <div className="h-screen bg-black text-white flex flex-col items-center justify-center p-4 sm:p-8 overflow-hidden">
             <img src={logo} alt="Logo" className="w-24 sm:w-32 md:w-48 h-12 sm:h-16 md:h-24 object-contain mb-4 sm:mb-8" />
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-wider mb-4 sm:mb-8 text-center bg-clip-text relative">
+            <h1 className="text-white text-5xl font-bold mb-16 animate-fade-in relative">
                 We're Coming Soon
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-gradient" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine" />
             </h1>
             <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider mb-4 sm:mb-16 text-center bg-clip-text px-4">
                 Our exciting new platform is currently under development, and we're<br className="hidden sm:block" />thrilled to announce that we’ll be launching soon.!
