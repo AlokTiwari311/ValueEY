@@ -44,14 +44,7 @@ const CountdownTimer = () => {
     };
 
     useEffect(() => {
-        let targetTime = localStorage.getItem("targetTime");
-        if (!targetTime) {
-            const startTime = new Date().getTime();
-            targetTime = startTime + 45 * 24 * 60 * 60 * 1000;
-            localStorage.setItem("targetTime", targetTime);
-        }
-
-        targetTime = Number(targetTime);
+        const targetTime = new Date('2025-02-20T00:00:00Z').getTime();
 
         const interval = setInterval(() => {
             const currentTime = new Date().getTime();
@@ -59,7 +52,7 @@ const CountdownTimer = () => {
 
             if (totalCountDownTime <= 0) {
                 clearInterval(interval);
-                localStorage.removeItem("targetTime");
+                flipAllCards(0);
             } else {
                 flipAllCards(totalCountDownTime);
             }
@@ -70,80 +63,75 @@ const CountdownTimer = () => {
 
     return (
         <div className="h-screen bg-black text-white flex flex-col items-center justify-center p-4 sm:p-8 overflow-hidden">
-            <img src={logo} alt="Logo" className="w-24 sm:w-32 md:w-48 h-12 sm:h-16 md:h-24 object-contain mb-4 sm:mb-8" />
-            <h1 className="text-white text-5xl text-center font-bold mb-6 animate-fade-in relative">
+            <img src={logo} alt="Logo" className="w-24 sm:w-32 md:w-48 h-12 sm:h-16 md:h-24 object-contain" />
+            <h1 className="text-white text-4xl text-center font-bold mb-6 animate-fade-in relative">
                 We're Coming Soon
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine" />
             </h1>
-            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider mb-2 sm:mb-10 text-center bg-clip-text px-4">
-                Risk & Business Consulting | Audits | Field Reviews | Compliances
+            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider text-center bg-clip-text px-4">
+                Risk & Business Consulting | Audits | Field Reviews | Compliances
             </h2>
-            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider mb-2 sm:mb-10 text-center bg-clip-text px-4">
-                Our exciting new platform is currently under development, and we're<br className="hidden sm:block" />thrilled to announce that we’ll be launching soon.!
+            <h2 className="text-base sm:text-lg md:text-xl font-light tracking-wider text-center bg-clip-text p-6">
+                Our exciting new platform is currently under development, and we're<br className="hidden sm:block" />thrilled to announce that we'll be launching soon.!
             </h2>
 
-
-            <div className="countdown-container backdrop-blur-lg bg-black/30 p-4 sm:p-8 md:p-12 rounded-2xl border border-white/5">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
-                    <div className="countdown-cards">
-                        <div className="card-container scale-75 sm:scale-90 md:scale-100">
-                            <div className="flip-card" data-days-tens>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
-                            <div className="flip-card" data-days-ones>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
+                <div className="countdown-cards">
+                    <div className="card-container scale-75 sm:scale-90 md:scale-100">
+                        <div className="flip-card" data-days-tens>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
                         </div>
-                        <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Days</div>
-                    </div>
-
-                    <div className="countdown-cards">
-                        <div className="card-container scale-75 sm:scale-90 md:scale-100">
-                            <div className="flip-card" data-hours-tens>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
-                            <div className="flip-card" data-hours-ones>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
+                        <div className="flip-card" data-days-ones>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
                         </div>
-                        <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Hours</div>
                     </div>
+                    <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Days</div>
+                </div>
 
-                    <div className="countdown-cards">
-                        <div className="card-container scale-75 sm:scale-90 md:scale-100">
-                            <div className="flip-card" data-minutes-tens>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
-                            <div className="flip-card" data-minutes-ones>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
+                <div className="countdown-cards">
+                    <div className="card-container scale-75 sm:scale-90 md:scale-100">
+                        <div className="flip-card" data-hours-tens>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
                         </div>
-                        <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Minutes</div>
+                        <div className="flip-card" data-hours-ones>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
+                        </div>
                     </div>
+                    <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Hours</div>
+                </div>
 
-                    <div className="countdown-cards">
-                        <div className="card-container scale-75 sm:scale-90 md:scale-100">
-                            <div className="flip-card" data-seconds-tens>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
-                            <div className="flip-card" data-seconds-ones>
-                                <div className="top">0</div>
-                                <div className="bottom">0</div>
-                            </div>
+                <div className="countdown-cards">
+                    <div className="card-container scale-75 sm:scale-90 md:scale-100">
+                        <div className="flip-card" data-minutes-tens>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
                         </div>
-                        <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Seconds</div>
+                        <div className="flip-card" data-minutes-ones>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
+                        </div>
                     </div>
+                    <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Minutes</div>
+                </div>
+
+                <div className="countdown-cards">
+                    <div className="card-container scale-75 sm:scale-90 md:scale-100">
+                        <div className="flip-card" data-seconds-tens>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
+                        </div>
+                        <div className="flip-card" data-seconds-ones>
+                            <div className="top">0</div>
+                            <div className="bottom">0</div>
+                        </div>
+                    </div>
+                    <div className="card-title uppercase tracking-widest text-xs sm:text-sm text-gray-400 mt-2">Seconds</div>
                 </div>
             </div>
-
-
 
             <div className="mt-4 sm:mt-12 w-full max-w-md px-4">
                 <div className="flex text-sm flex-col sm:flex-row gap-4">
@@ -158,9 +146,14 @@ const CountdownTimer = () => {
                     </button>
                 </div>
 
-                <p className="text-gray-300 text-sm sm:text-base mt-4 text-center">
-                    We are working very hard on the new version of our site.
-                </p>
+                <div className="w-full mt-4 flex items-center justify-center">
+                    <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl text-center whitespace-normal lg:whitespace-nowrap">
+                        We are working very hard on the new version of our site.
+                    </p>
+                </div>
+
+
+
             </div>
         </div>
     );
